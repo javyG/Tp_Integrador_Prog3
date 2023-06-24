@@ -25,8 +25,7 @@ DELIMITER $$
 --
 -- Procedimientos
 --
-CREATE DEFINER=`javier`@`localhost` PROCEDURE `buscarDistancia` (IN `buscador` VARCHAR(50))   select * from distancia
-where id_distancia = buscador$$
+
 
 CREATE DEFINER=`javier`@`localhost` PROCEDURE `Buscarkm` (IN `desde` VARCHAR(50), IN `hasta` VARCHAR(50))   SELECT km,ramal from distancia WHERE origen = desde and destino = hasta$$
 
