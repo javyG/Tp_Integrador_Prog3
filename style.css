@@ -93,6 +93,10 @@ nav a{
     gap: 10px;
 }
 
+#botoncito{
+    color: blueviolet;
+}
+
 .imagenes{
     position: relative;
     justify-content: center;
@@ -121,6 +125,10 @@ nav a{
     width: 460px;
     height: 460px;
     
+}
+
+.imagentur{
+    display: none;
 }
 
 
@@ -154,6 +162,8 @@ footer{
     align-items: center;
 
 }
+
+
 
 
 
