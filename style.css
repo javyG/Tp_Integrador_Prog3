@@ -7,6 +7,7 @@
     font-family: 'Quicksand', sans-serif;
 }
 
+
 header{
     z-index: 1;
     position: sticky;
@@ -34,13 +35,16 @@ nav a{
     width: auto;
     height: 40px;
     padding: 10px;
-    background-color: rgb(24, 97, 156);
+    background-color: rgba(8, 78, 230, 0.904);
     color: aliceblue;
+    border: none;
 }
 
 .registro:hover{
     background-color: deepskyblue;
 }
+
+
 
 .div1{
     width: 1000px;
@@ -93,12 +97,143 @@ nav a{
     gap: 10px;
 }
 
-#botoncito{
-    color: blueviolet;
+
+
+.popup{
+   
+    background-color:rgb(255, 255, 255);
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    width: 0px;
+    padding: 20px 30px;
+    box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    color:darkslategray;
+    text-align: left;
+    opacity: 0%;
+  
+   
+}
+
+
+.popup1{
+    background-color:white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0px;
+    padding: 20px 30px;
+    box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    color:darkslategray;
+    text-align: left;
+    opacity: 0%;
+    
+}
+
+.popup.active{
+    width: 300px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1.25);
+    opacity: 1;
+    transition: top 0ms ease-in-out 200ms,
+                opacity 500ms ease-in-out 0ms,
+                transform 20ms ease-in-out 0ms;
+                     
+}
+
+
+.popup1.active1{
+    width: 300px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1.25);
+    opacity: 1;
+    transition: top 0ms ease-in-out 200ms,
+                opacity 500ms ease-in-out 0ms,
+                transform 20ms ease-in-out 0ms;
+
+}
+.formlogin input{
+    border-radius: 3px;
+    font-size: medium;
+    width: 100%;
+}
+
+.popup .close-btn{
+    position: absolute;
+    top: 10px;
+    right:10px ;
+    width: 15px;
+    height: 15px;
+    background-color: midnightblue;
+    color: white;
+    text-align: center;
+    line-height: 15px;
+    border-radius: 15px;
+    cursor: pointer;
+
+}
+.popup1 .close-btn1{
+    
+    position: absolute;
+    top: 10px;
+    right:10px ;
+    width: 15px;
+    height: 15px;
+    background-color: midnightblue;
+    color: white;
+    text-align: center;
+    line-height: 15px;
+    border-radius: 15px;
+    cursor: pointer;
+
+}
+.login{
+    align-items: center;
+    justify-content: center;
+    top:50%;
+    left: 50%;
+}
+
+.formlogin{
+    margin-top: 5px;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    border-radius:5px ;
+}
+
+.center{
+    align-items: center;
+    padding: 10px 20px;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 15px;
+    color: aliceblue;
+    background-color: rgb(6, 67, 233);
+}
+.success{
+    position: absolute;
+    color: greenyellow;
+    top: 50px;
+    font-size: 25px;
+}
+.error{
+    position: absolute;
+    color:firebrick;
+    top: 50px;
+    font-size: 25px;
 }
 
 .imagenes{
-    position: relative;
+    position: static;
     justify-content: center;
     overflow: hidden;
     width: auto;

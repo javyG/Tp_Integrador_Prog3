@@ -1,14 +1,15 @@
 <?php
-$servername = "localhost";
-$username = "c230150";
-$password = "naVU07dode";
+$servername = "db4free.net:3306";
+$username = "trenes_viajaya";
+$password = "viajaya123";
+$bd = "trenes";
 
 // Create connection
-$conn = new mysqli($servername, $username, $password);
+$conn = new mysqli($servername, $username, $password, $bd);
 
 // Check connection
 if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
+  die("Falló la conexión: " . $conn->connect_error);
 }
-echo "Connected successfully";
-?> 
+echo "Conectado exitosamente";
+?>

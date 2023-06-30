@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Viaja ya</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="javascript.js">
 </head>
 <body>
 
@@ -13,8 +14,8 @@
         <img class="logo" src="Imagen/logo.png" alt="">
         </a> 
         <nav>
-             <a class="registro" href="#">Registrarse</a>
-             <a href="#">Iniciar Sesión</a>        
+             <a class="registro" onclick="registrarse();">Registrarse</a>
+             <a class="login-usuario" onclick="iniciarsesion();">Iniciar Sesión</a>        
         </nav>
  </header>
  
@@ -78,10 +79,40 @@
     </div>   
  </section>
 
-<section class="reservas">
-    <div >
-     <button></button>
-    </div>   
+<section class="login">
+    <div class="popup">
+        <div class="close-btn">
+           <a onclick="cerrar();">&times;</a> 
+        </div>
+        <form class="formlogin" action="registro.php" method="post">
+        Usuario:<input type="text" name="usuario" placeholder="Usuario"><br>
+        <br>
+        Tipo de usuario:<input type="text" name="TipoUsuarioID" placeholder="Tipo Usuario"><br>
+        <br>
+        Contraseña:<input type="text" name="password" placeholder="Contraseña"><br>
+        <br>
+        Nombre: <input type="text" name="name" placeholder="Ingrese su nombre"><br>
+        <br>
+        E-mail: <input type="text" name="email" placeholder="Ingrese su email"><br>
+        <br>
+        
+        <input type="submit" name="Registrar" value="Registrar" class="center">
+        </form>      
+    </div>      
+</section>
+<section class="login-user">
+    <div class="popup1">
+        <div class="close-btn1">
+           <a onclick="cerrar1();">&times;</a> 
+        </div>
+        <form class="formlogin" action="login.php" method="post">
+        E-mail: <input type="text" name="usuario" placeholder="Ingrese su usuario"><br>
+        <br>
+        Contraseña:<input type="text" name="password" placeholder="Contraseña"><br>
+        <br>
+        <input type="submit" name="ingresar" value="Ingresar" class="center">
+        </form>      
+    </div>      
 </section>
 
 
@@ -129,9 +160,32 @@
       <h3 class="corpo"> Viaja Ya &copy; 2023 - Todos los derechos reservados   </h3>
     </div>
  </footer>  
+ <script>
+    function registrarse(){
+        document.querySelector(".popup").classList.add("active");
+  
+        
+    }
+    function cerrar(){
+        document.querySelector(".popup").classList.remove("active");
+        
+    }
+
+    function iniciarsesion(){
+        document.querySelector(".popup1").classList.add("active1");
+        
+    }
+    function cerrar1(){
+        document.querySelector(".popup1").classList.remove("active1");
+      
+    }
+   
+    
+ </script>
  <script src="https://kit.fontawesome.com/7b140c6d77.js" crossorigin="anonymous"></script>
-  <?php
-  include("consulta.php");
-  ?>
+ <?php
+  include("login.php");
+  include("registro.php");
+  ?> 
 </body>
 </html>
