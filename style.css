@@ -91,6 +91,27 @@ nav a{
     text-transform: uppercase;
 }
 
+.btn-perfil{
+    margin-bottom: 10px;
+    width: auto;
+    height: 30px;
+    padding: 10px;
+    color: rgb(36, 71, 168);
+    border: none;
+}
+
+.logout{
+   padding: 10px;
+}
+#logoutico{
+    font-size: 30px;
+    color: rgb(44, 45, 109);
+    margin-right: 10px;
+    text-align: center;
+    align-items: center;
+}
+
+
 .radios{
     display: flex;
     margin: 10px;
@@ -98,7 +119,55 @@ nav a{
 }
 
 
+.perfil{
+    background-color: aqua;
+    opacity: 0%;
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    width: 0px;
+    padding: 20px 30px;
+    box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    color:rgb(255, 255, 255);
+    text-align: center;
+    display: flex;
+   
+ 
+}
 
+.perfil.active{
+    display: flow-root;
+    padding-bottom: 40px;
+    background-color: rgb(4, 109, 179);
+    width: 300px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1.25);
+    opacity: 1;
+    transition: top 0ms ease-in-out 200ms,
+                opacity 500ms ease-in-out 0ms,
+                transform 20ms ease-in-out 0ms;
+    text-align: center;
+    align-items: center;
+}
+.perfil .close-btn2{
+    position: absolute;
+    top: 10px;
+    right:10px ;
+    width: 15px;
+    height: 15px;
+    background-color: midnightblue;
+    color: white;
+    text-align: center;
+    line-height: 15px;
+    border-radius: 15px;
+    cursor: pointer;
+
+}
+.conex{
+    opacity: 0%;
+}
 .popup{
    
     background-color:rgb(255, 255, 255);
@@ -219,7 +288,7 @@ nav a{
     color: aliceblue;
     background-color: rgb(6, 67, 233);
 }
-.success{
+h3 .success{
     position: absolute;
     color: greenyellow;
     top: 50px;
@@ -278,6 +347,13 @@ nav a{
     font-size: 20px;
     text-align: center;
     
+}
+#user{
+    font-size: 30px;
+    color: rgb(44, 45, 109);
+    margin-right: 10px;
+    text-align: center;
+    align-items: center;
 }
 
 .seccion3 i{

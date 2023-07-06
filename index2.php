@@ -1,24 +1,57 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Viaja ya</title>
     <link rel="stylesheet" href="style.css">
-    
+   
 </head>
+
+
 <body>
 
  <header>
         <a>
         <img class="logo" src="Imagen/logo.png" alt="">
         </a> 
-        <nav>
-             <a class="registro" onclick="registrarse();">Registrarse</a>
-             <a class="login-usuario" onclick="iniciarsesion();">Iniciar Sesión</a>        
+        <nav class="usuarios">
+             <a id="user" onclick="verperfil();" class="fa-regular fa-user"></a>
+             <a class="btn-perfil" onclick="verperfil();" >Perfil</a>  
+             <i class="nav-icon fa fa-sign-out" href="logout.php" id="logoutico"></i>
+             <a href="logout.php" class="logout">
+             <p>Cerrar Sesión</p>
+             </a>      
         </nav>
  </header>
+ <section class="perfil1" id="perfil1">
  
+ <div class="perfil">
+        <div class="close-btn2">
+           <a onclick="cerrarperfil();">&times;</a> 
+
+        </div>
+        <div class="conex">
+        <?php 
+        include("conexion.php");
+        ?>
+        </div>
+     
+      <?php
+      foreach($conn->query("SELECT * FROM Usuarios where Usuario= 'Eliana2'") as $row){
+      ?>
+      <thead>
+      <tr><td>Nombre:<?php echo $row["nombre"] ?> </td></tr><br>
+      <tr><td>Usuario:<?php echo $row["Usuario"] ?> </td></tr><br>
+      <tr><td>Email:<?php echo $row["mail"] ?> </td></tr><br>
+      </tr>
+      </thead>
+      <?php }   ?>
+    </div>
+ </section>
+
  <!-- Seccion donde se encuentra el form principal -->
  <section class="principal">
     <div class="divprincipal">
@@ -79,39 +112,6 @@
     </div>   
  </section>
 
-<section class="login">
-    <div class="popup">
-        <div class="close-btn">
-           <a onclick="cerrar();">&times;</a> 
-        </div>
-        <form class="formlogin" action="registro.php" method="post">
-        Usuario:<input type="text" name="usuario" placeholder="Usuario"><br>        
-        <br>
-        Contraseña:<input type="text" name="password" placeholder="Contraseña"><br>
-        <br>
-        Nombre: <input type="text" name="name" placeholder="Ingrese su nombre"><br>
-        <br>
-        E-mail: <input type="text" name="email" placeholder="Ingrese su email"><br>
-        <br>  
-        <input type="submit" name="Registrar" value="Registrar" class="center">
-        </form>      
-    </div>      
-</section>
-<section class="login-user">
-    <div class="popup1">
-        <div class="close-btn1">
-           <a onclick="cerrar1();">&times;</a> 
-        </div>
-        <form class="formlogin" action="login.php" method="post">
-        E-mail: <input type="text" name="usuario" placeholder="Ingrese su usuario"><br>
-        <br>
-        Contraseña:<input type="text" name="password" placeholder="Contraseña"><br>
-        <br>
-        <input type="submit" name="ingresar" value="Ingresar" class="center">
-        </form>      
-    </div>      
-</section>
-
 
  <section>
     <!-- Seccion de imagenes de promocion -->
@@ -158,32 +158,17 @@
     </div>
  </footer>  
  <script>
-    function registrarse(){
-        document.querySelector(".popup").classList.add("active");
+ function verperfil(){
+        document.querySelector(".perfil").classList.add("active");
   
         
     }
-    function cerrar(){
-        document.querySelector(".popup").classList.remove("active");
+    function cerrarperfil(){
+        document.querySelector(".perfil").classList.remove("active");
         
     }
-
-    function iniciarsesion(){
-        document.querySelector(".popup1").classList.add("active1");
-        
-    }
-    function cerrar1(){
-        document.querySelector(".popup1").classList.remove("active1");
-      
-    }
-   
-   
-    
- </script>
+</script>
  <script src="https://kit.fontawesome.com/7b140c6d77.js" crossorigin="anonymous"></script>
- <?php
-  include("login.php");
-  include("registro.php");
-  ?> 
+
 </body>
 </html>
