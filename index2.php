@@ -1,3 +1,22 @@
+<?php
+include("conexion.php");
+session_start();
+if(!isset ($_SESSION['usuario'])){
+       header("Location:index.php");
+}
+$id_user= $_SESSION['usuario'];
+$sql= "SELECT usuario, Nombre FROM Usuarios WHERE usuario= '$id_user'";
+$sql1= "SELECT usuario,mail FROM Usuarios WHERE usuario= '$id_user'";
+$sql3= "SELECT usuario FROM Usuarios WHERE usuario= '$id_user'";
+$resultado2= $conn->query($sql1);
+$resultado= $conn->query($sql);
+$resultado3= $conn->query($sql3);
+$row= $resultado->fetch_assoc();
+$row2= $resultado2->fetch_assoc();
+$row3= $resultado3->fetch_assoc();
+?>
+
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -38,17 +57,20 @@
         include("conexion.php");
         ?>
         </div>
+        Nombre:
+        <?php
+         echo utf8_decode($row['Nombre']);  ?>
+         <br>
+         Email:
+         <?php
+         echo utf8_decode($row2['mail']);
+         ?>
+         <br>
+         Usuario:
+        <?php
+         echo utf8_decode($row2['usuario']);
+         ?>
      
-      <?php
-      foreach($conn->query("SELECT * FROM Usuarios where Usuario= 'Eliana2'") as $row){
-      ?>
-      <thead>
-      <tr><td>Nombre:<?php echo $row["nombre"] ?> </td></tr><br>
-      <tr><td>Usuario:<?php echo $row["Usuario"] ?> </td></tr><br>
-      <tr><td>Email:<?php echo $row["mail"] ?> </td></tr><br>
-      </tr>
-      </thead>
-      <?php }   ?>
     </div>
  </section>
 

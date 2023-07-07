@@ -1,9 +1,12 @@
 <?php
 include("conexion.php");
-
+session_start();
+if(isset ($_SESSION['usuario'])){
+       header("Location:index2.php");
+}
 $Usuario = trim($_POST['usuario']);
 $Clave = trim($_POST['password']);
-
+$_SESSION['usuario']= $Usuario;
 
 if(isset($_POST['ingresar'])){
   if(
@@ -13,21 +16,21 @@ if(isset($_POST['ingresar'])){
 
         //INGRESO DE DATOS CON PROCEDIMIENTO
         $procedimSql = mysqli_query($conn, "SELECT * FROM Usuarios where Usuario='".$Usuario."' and clave= '".$Clave."'");
-
         if($procedimSql){
-          session_start();
           
-          header("location:index2.php");
           echo '<script language="javascript">
           alert(" Bienvenido!! ");
           window.location.href = "index2.php";
           </script>';
          
         }else{
-          ?>
-            <br><br>
-            <h3 class="error">Ocurrió un error</h3>
-          <?php
+          
+            
+            echo '<script language="javascript">
+          alert("Contraseña o usuario incorrectos");
+          
+          </script>';
+          
         }
 
       }else{
