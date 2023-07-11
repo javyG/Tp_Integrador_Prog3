@@ -181,9 +181,6 @@
     
  </script>
  <script src="https://kit.fontawesome.com/7b140c6d77.js" crossorigin="anonymous"></script>
- <?php
-  include("login.php");
-  include("registro.php");
-  ?> 
+ 
 </body>
 </html>
