@@ -1,79 +1,24 @@
-<?php
-include("conexion.php");
-session_start();
-if(!isset ($_SESSION['usuario'])){
-       header("Location:index.php");
-}
-$id_user= $_SESSION['usuario'];
-$sql= "SELECT usuario, Nombre FROM Usuarios WHERE usuario= '$id_user'";
-$sql1= "SELECT usuario,mail FROM Usuarios WHERE usuario= '$id_user'";
-$sql3= "SELECT usuario FROM Usuarios WHERE usuario= '$id_user'";
-$resultado2= $conn->query($sql1);
-$resultado= $conn->query($sql);
-$resultado3= $conn->query($sql3);
-$row= $resultado->fetch_assoc();
-$row2= $resultado2->fetch_assoc();
-$row3= $resultado3->fetch_assoc();
-?>
-
-
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Viaja ya</title>
     <link rel="stylesheet" href="style.css">
-   
+    
 </head>
-
-
 <body>
 
  <header>
         <a>
         <img class="logo" src="Imagen/logo.png" alt="">
         </a> 
-        <nav class="usuarios">
-             <a id="user" onclick="verperfil();" class="fa-regular fa-user"></a>
-             <a class="btn-perfil" onclick="verperfil();" >Perfil</a>  
-             <i class="nav-icon fa fa-sign-out" href="logout.php" id="logoutico"></i>
-             <a href="logout.php" class="logout">
-             <p>Cerrar Sesión</p>
-             </a>      
+        <nav>
+             <a class="registro" onclick="registrarse();">Registrarse</a>
+             <a class="login-usuario" onclick="iniciarsesion();">Iniciar Sesión</a>        
         </nav>
  </header>
- <section class="perfil1" id="perfil1">
  
- <div class="perfil">
-        <div class="close-btn2">
-           <a onclick="cerrarperfil();">&times;</a> 
-
-        </div>
-        <div class="conex">
-        <?php 
-        include("conexion.php");
-        ?>
-        </div>
-        Nombre:
-        <?php
-         echo utf8_decode($row['Nombre']);  ?>
-         <br>
-         Email:
-         <?php
-         echo utf8_decode($row2['mail']);
-         ?>
-         <br>
-         Usuario:
-        <?php
-         echo utf8_decode($row2['usuario']);
-         ?>
-     
-    </div>
- </section>
-
  <!-- Seccion donde se encuentra el form principal -->
  <section class="principal">
     <div class="divprincipal">
@@ -134,6 +79,39 @@ $row3= $resultado3->fetch_assoc();
     </div>   
  </section>
 
+<section class="login">
+    <div class="popup">
+        <div class="close-btn">
+           <a onclick="cerrar();">&times;</a> 
+        </div>
+        <form class="formlogin" action="registro.php" method="post">
+        Usuario:<input type="text" name="user" placeholder="Usuario"><br>        
+        <br>
+        Contraseña:<input type="text" name="password" placeholder="Contraseña"><br>
+        <br>
+        Nombre: <input type="text" name="name" placeholder="Ingrese su nombre"><br>
+        <br>
+        E-mail: <input type="text" name="email" placeholder="Ingrese su email"><br>
+        <br>  
+        <input type="submit" name="Registrar" value="Registrar" class="center">
+        </form>      
+    </div>      
+</section>
+<section class="login-user">
+    <div class="popup1">
+        <div class="close-btn1">
+           <a onclick="cerrar1();">&times;</a> 
+        </div>
+        <form class="formlogin" action="login.php" method="post">
+        Usuario: <input type="text" name="user" placeholder="Ingrese su usuario"><br>
+        <br>
+        Contraseña:<input type="text" name="password" placeholder="Contraseña"><br>
+        <br>
+        <input type="submit" name="ingresar" value="Ingresar" class="center">
+        </form>      
+    </div>      
+</section>
+
 
  <section>
     <!-- Seccion de imagenes de promocion -->
@@ -180,17 +158,29 @@ $row3= $resultado3->fetch_assoc();
     </div>
  </footer>  
  <script>
- function verperfil(){
-        document.querySelector(".perfil").classList.add("active");
+    function registrarse(){
+        document.querySelector(".popup").classList.add("active");
   
         
     }
-    function cerrarperfil(){
-        document.querySelector(".perfil").classList.remove("active");
+    function cerrar(){
+        document.querySelector(".popup").classList.remove("active");
         
     }
-</script>
- <script src="https://kit.fontawesome.com/7b140c6d77.js" crossorigin="anonymous"></script>
 
+    function iniciarsesion(){
+        document.querySelector(".popup1").classList.add("active1");
+        
+    }
+    function cerrar1(){
+        document.querySelector(".popup1").classList.remove("active1");
+      
+    }
+   
+   
+    
+ </script>
+ <script src="https://kit.fontawesome.com/7b140c6d77.js" crossorigin="anonymous"></script>
+ 
 </body>
 </html>

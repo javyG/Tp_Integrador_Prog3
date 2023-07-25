@@ -16,7 +16,7 @@ if(isset($_POST['Registrar'])){
         $mail = trim($_POST['email']);
         $username= $Usuario;
         //INGRESO DE DATOS CON PROCEDIMIENTO
-        $procedimSql = mysqli_query($conn, "CALL insertarUsuario('3','$Usuario', '$Clave', '$Nombre', '$mail')");
+        $procedimSql = mysqli_query($conn, "CALL insertarUsuario('$Usuario', '$Clave', '$Nombre', '$mail','Usuario')");
 
         if($procedimSql){
            
