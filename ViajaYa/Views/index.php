@@ -33,9 +33,9 @@
                 <form action="/form.php" method="post">
                     Busca tu pasaje <br>
                     <div class="radios">
-                     <input type="radio" id="ida" name="viajeida" value="IDA">
+                     <input type="radio" id="ida" name="tipodeviaje" value="IDA">
                      <label for="ida">Ida</label><br>
-                     <input type="radio" id="idayvuelta" name="viajeidayvuelta" value="IDA">
+                     <input type="radio" id="idayvuelta" name="tipodeviaje" value="IDA">
                      <label for="idayvuelta">Ida y Vuelta</label><br>
                     </div>
                   
