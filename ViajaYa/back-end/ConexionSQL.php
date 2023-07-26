@@ -6,7 +6,7 @@
        private static $server = "db4free.net:3306";
        private static $user = "trenes_viajaya";
        private static $password = "viajaya123";
-       protected $db;//db ="trenes";
+       protected $db ="trenes";
        private static $db_charset = 'utf8';
        private $conn;
        protected $query;
@@ -14,8 +14,12 @@
        //Metodos Abstractos para CRUD de clases que heredan.
        abstract protected function create();
        abstract protected function read();
-       abstract protected function uptdate();
+       abstract protected function update();
        abstract protected function delete();
+       abstract protected function search();
+
+
+       
        //metodo privado de conexion a db;
        private function db_open(){
             $this->conn = new mysqli(

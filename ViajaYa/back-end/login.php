@@ -1,40 +1,29 @@
 <?php
-session_start();
-include("conexion.php");
+require_once('ConexionSQL.php');
+require_once('UsersModel.php');
 
-// Procesar los datos del formulario
-
-  if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST["user"];
-    $password = $_POST["password"];
-
-    // Consulta para verificar el usuario en la base de datos
-    $sql = "SELECT user_id, pass FROM Usuarios WHERE user = '$username' AND pass = MD5('$password')";
-    $result = $conn->query($sql);
-
-    if ($result->num_rows == 1) {
-       // El usuario ha sido validado correctamente
-       echo 'Inicio exitoso';
-      $row = $result->fetch_assoc();
-      $stored_password = $row["pass"];
-      
-      // Verificar la contraseña utilizando la función password_verify
-      if (password_verify($password, $stored_password)) {
-          
-          $_SESSION["user_id"] = $row["user_id"];
-          header("Location: Views/index2.php"); // Redirige a la página de inicio de usuario
-      } else {
-          // Contraseña incorrecta
-          echo "contraseña incorrecta.";
-      }
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
     
+    $usersModel = new UsersModel();
+
+   
+    $usuario = $_POST['user'];
+    $password = $_POST['pass'];
+
+  
+    $userData = $usersModel->validate_user($usuario, $password);
+
+    if (!empty($userData)) {
+
+        session_start();
+        $_SESSION['user'] = $userData[0]['user']; 
+        echo 'ingreso exitoso';
+        //header("Location: .."); 
+        exit();
     } else {
-        // El usuario no ha sido encontrado 
-        echo "Nombre de usuario  incorrecto.";
+        echo "Usuario o contraseña incorrectos";
+       // header("Location: .."); 
     }
 }
-
-// Cerrar la conexión
-$conn->close();
 ?>
       

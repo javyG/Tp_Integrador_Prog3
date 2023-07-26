@@ -1,39 +1,29 @@
 <?php
-include("conexion.php");
+require_once('ConexionSQL.php');
+require_once('UsersModel.php');
 
 if(isset($_POST['Registrar'])){
-  if(
- 
-    strlen($_POST['usuario']) >= 1 &&
-    strlen($_POST['password']) >= 1 &&
-    strlen($_POST['name']) >= 1 &&
-    strlen($_POST['email']) >= 1 
-    ){
-        
-        $Usuario = trim($_POST['usuario']);
-        $Clave = trim($_POST['password']);
-        $Nombre = trim($_POST['name']);
-        $mail = trim($_POST['email']);
-        $username= $Usuario;
-        //INGRESO DE DATOS CON PROCEDIMIENTO
-        $procedimSql = mysqli_query($conn, "CALL insertarUsuario('$Usuario', '$Clave', '$Nombre', '$mail','Usuario')");
+  
+  if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    // Create a new instance of the UsersModel class
+    $usersModel = new UsersModel();
 
-        if($procedimSql){
-           
-          
-          header("location:index2.php");
-          
-        }else{
-          ?>
-            <br><br>
-            <h3 class="error">Ocurrió un error</h3>
-          <?php
-        }
+    // Prepare the user data array from the POST data
+    $user_data = array(
+        'name' => $_POST['name'],
+        'mail' => $_POST['mail'],
+        'user' => $_POST['user'],
+        'pass' => $_POST['pass'],
+        'role' => '3'
+    );
 
-      }else{
-        ?>
-          <br><br>
-          <h3 class="error">Debes completar todos los campos</h3>
-        <?php
-    }
-  };?>
+    // Call the create method to insert the user
+    $usersModel->create($user_data);
+    echo 'registro completo';
+    // Optionally, you can redirect the user to a success page or display a success message.
+    // For example, you can redirect to a success page like this:
+   // header("Location: ./index2.php");
+    exit();
+}
+}
+  ?>
