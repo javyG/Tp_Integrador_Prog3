@@ -14,6 +14,7 @@
         <img class="logo" src="Imagen/logo.png" alt="">
         </a> 
         <nav>
+            <a class="registro" href="formReservas.php">Reservar_</a>
              <a class="registro" onclick="registrarse();">Registrarse</a>
              <a class="login-usuario" onclick="iniciarsesion();">Iniciar Sesión</a>        
         </nav>
@@ -75,8 +76,13 @@
                    
                 </form>
             </div>
+            <!-- <div>
+                <p>Reserva ahoraa</p>
+                <input type="submit" action="Views/formReservas.php" value="Ir a reservas" name="botonReservar" >
+            </div> -->
         </div>
-    </div>   
+    </div>
+    
  </section>
 
 <section class="login">

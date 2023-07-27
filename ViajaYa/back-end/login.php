@@ -5,11 +5,10 @@ require_once('UsersModel.php');
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     
     $usersModel = new UsersModel();
-
    
     $usuario = $_POST['user'];
     $password = $_POST['pass'];
-
+    
   
     $userData = $usersModel->validate_user($usuario, $password);
 
