@@ -75,6 +75,10 @@
                    
                 </form>
             </div>
+            <!-- <div>
+                <p>Reserva ahora</p>
+                <input type="submit" action=".Views/formReservas.php" value="Ir a reservas" name="botonReservar" >
+            </div> -->
         </div>
     </div>   
  </section>

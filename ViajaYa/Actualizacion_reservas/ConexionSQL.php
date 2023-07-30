@@ -13,21 +13,12 @@
        protected $query;//variable para ejecutar las consultas
        protected $rows = array(); //para contener los datos de las consultas en un array
        
-
        //Metodos Abstractos para CRUD de clases que heredan. NO NECESITAN SER INSTANCIADOS
        abstract protected function create();
        abstract protected function read();
        abstract protected function update();
        abstract protected function delete();
-
-       //destinos
-       abstract protected function createDistancias();
-       abstract protected function readDistancias();
-       abstract protected function readDestinos();
-       abstract protected function readOrigenes(); 
-       abstract protected function deleteDistancia();
-       abstract protected function buscarDistancia();
-      
+       abstract protected function search();
 
        //metodoS privadoS de conexion a db;
        //ES PRIVATE PORQ SOLO ESTE ARCHIVO TIENE LA CONEXION

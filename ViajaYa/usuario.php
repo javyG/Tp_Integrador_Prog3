@@ -1,25 +1,74 @@
+<?php
+require_once('back-end/UsersModel.php');
+require_once('back-end/login.php');
+
+if (isset($_SESSION['user']) && $_SESSION['user'] === true) {
+
+    $datos =   new UsersModel();
+    $user=$_SESSION['user'];
+    $resultado = $datos->read($user);
+} else {
+    
+    echo 'No ha iniciado sesion';
+}
+
+
+?> 
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Viaja ya</title>
     <link rel="stylesheet" href="style.css">
-    
+   
 </head>
+
+
 <body>
 
  <header>
-        <a href="index.php">
-        <img class="logo"  src="Imagen/logo.png" alt="">
+        <a href="usuario.php">
+        <img class="logo" src="Imagen/logo.png" alt="">
         </a> 
-        <nav>
-            <a class="registro" href="formReservas.php">Reservar</a>
-             <a class="registro" onclick="registrarse();">Registrarse</a>
-             <a class="login-usuario" onclick="iniciarsesion();">Iniciar Sesión</a>        
+        <nav class="usuarios">
+             <a id="user" onclick="verperfil();" class="fa-regular fa-user"></a>
+             <a class="btn-perfil" onclick="verperfil();" >Perfil</a>  
+             <i class="nav-icon fa fa-sign-out" href="logout.php" id="logoutico"></i>
+             <a href="back-end/logout.php" class="logout">
+             <p>Cerrar Sesión</p>
+             </a>      
         </nav>
  </header>
+ <section class="perfil1" id="perfil1">
  
+ <div class="perfil">
+        <div class="close-btn2">
+           <a onclick="cerrarperfil();">&times;</a> 
+
+        </div>
+        <div class="conex">
+        <?php
+        if (!empty($resultado)) {
+            
+            $nombre = $resultado[0]['name']; 
+            $usuario = $resultado[0]['user']; 
+            $email = $resultado[0]['mail']; 
+        
+         
+            echo "Nombre: " . $nombre . "<br>";
+            echo "Usuario: " . $usuario . "<br>";
+            echo "Email: " . $email . "<br>";
+        } else {
+            echo "Usuario no encontrado.";
+        }
+         ?>
+         </div>
+    </div>
+ </section>
+
  <!-- Seccion donde se encuentra el form principal -->
  <section class="principal">
     <div class="divprincipal">
@@ -76,47 +125,9 @@
                    
                 </form>
             </div>
-            <!-- <div>
-                <p>Reserva ahoraa</p>
-                <input type="submit" action="Views/formReservas.php" value="Ir a reservas" name="botonReservar" >
-            </div> -->
         </div>
-    </div>
-    
+    </div>   
  </section>
-
-<section class="login">
-    <div class="popup">
-        <div class="close-btn">
-           <a onclick="cerrar();">&times;</a> 
-        </div>
-        <form class="formlogin" action="back-end/registro.php" method="post">
-        Usuario:<input type="text" name="user" placeholder="Usuario"><br>        
-        <br>
-        Contraseña:<input type="text" name="pass" placeholder="Contraseña"><br>
-        <br>
-        Nombre: <input type="text" name="name" placeholder="Ingrese su nombre"><br>
-        <br>
-        E-mail: <input type="text" name="mail" placeholder="Ingrese su email"><br>
-        <br>  
-        <input type="submit" name="Registrar" value="Registrar" class="center">
-        </form>      
-    </div>      
-</section>
-<section class="login-user">
-    <div class="popup1">
-        <div class="close-btn1">
-           <a onclick="cerrar1();">&times;</a> 
-        </div>
-        <form class="formlogin" action="back-end/login.php" method="post">
-        Usuario: <input type="text" name="users" placeholder="Ingrese su usuario"><br>
-        <br>
-        Contraseña:<input type="text" name="passw" placeholder="Contraseña"><br>
-        <br>
-        <input type="submit" name="ingresar" value="Ingresar" class="center">
-        </form>      
-    </div>      
-</section>
 
 
  <section>
@@ -164,29 +175,18 @@
     </div>
  </footer>  
  <script>
-    function registrarse(){
-        document.querySelector(".popup").classList.add("active");
+ function verperfil(){
+        document.querySelector(".perfil").classList.add("active");
   
         
     }
-    function cerrar(){
-        document.querySelector(".popup").classList.remove("active");
+    function cerrarperfil(){
+        document.querySelector(".perfil").classList.remove("active");
         
     }
-
-    function iniciarsesion(){
-        document.querySelector(".popup1").classList.add("active1");
-        
-    }
-    function cerrar1(){
-        document.querySelector(".popup1").classList.remove("active1");
-      
-    }
-   
-   
-    
- </script>
+</script>
  <script src="https://kit.fontawesome.com/7b140c6d77.js" crossorigin="anonymous"></script>
- 
+
 </body>
-</html>
+</html>;
+?>

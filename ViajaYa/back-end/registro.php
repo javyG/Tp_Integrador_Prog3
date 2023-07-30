@@ -2,6 +2,7 @@
 require_once('ConexionSQL.php');
 require_once('UsersModel.php');
 
+
 if(isset($_POST['Registrar'])){
   
   if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -10,20 +11,29 @@ if(isset($_POST['Registrar'])){
 
     // Prepare the user data array from the POST data
     $user_data = array(
-        'name' => $_POST['name'],
-        'mail' => $_POST['mail'],
-        'user' => $_POST['user'],
-        'pass' => $_POST['pass'],
-        'role' => '3'
+        'name' => $_POST['names'],
+        'mail' => $_POST['mails'],
+        'user' => $_POST['users'],
+        'pass' => $_POST['passw'],
+        'role' => 'Usuario',
     );
 
     // Call the create method to insert the user
     $usersModel->create($user_data);
-    echo 'registro completo';
-    // Optionally, you can redirect the user to a success page or display a success message.
-    // For example, you can redirect to a success page like this:
-   // header("Location: ./index2.php");
+    ?>
+    <script>
+    window.alert("Registro completo!");
+    window.location.href = "usuario.php";
+    </script>
+    <?php
     exit();
+}else{
+  ?>
+  <script>
+  window.alert("Registro falló!");
+  window.location.href = "index.php";
+  </script>
+  <?php
 }
 }
   ?>
