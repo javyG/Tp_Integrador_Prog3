@@ -11,6 +11,7 @@ if(isset($_POST['Registrar'])){
 
     // Prepare the user data array from the POST data
     $user_data = array(
+      //nombre_bd     nombre form
         'name' => $_POST['names'],
         'mail' => $_POST['mails'],
         'user' => $_POST['users'],

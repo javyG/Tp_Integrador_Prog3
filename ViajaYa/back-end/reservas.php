@@ -1,40 +1,66 @@
 <?php
-
-  include_once('ConexionSQL.php');
-  require_once('UsersModel.php');
+  require_once('modeloReservas.php');
+  
+require_once('UsersModel.php');
 
   //toma de datos de reserva
   // ID RESERVA
-  if($_SERVER["REQUEST_METHOD"] === POST(['btnRegister'])){
+  if(isset($_POST['btnReservar'])){
     // $_SERVER["REQUEST_METHOD"] === "POST"
 
-    $controlModel = new UsersModel();
-   
-    $nombre = $_POST['Nombre'];
-    $apellido = $_POST['Apellido'];
-    $dni = $_POST['DNI'];
-    $mail = trim($_POST['Email']);
-    $telefono = $_POST['Telefono'];
-    $direccion = $_POST['Direccion'];
-    $numeroDir = $_POST['NumeroDir'];
-    $localidad = $_POST['Localidad'];
+    if(isset($_POST['btnReservar'])){
+      $usersModel = new UsersModel();
 
-    $fechaSalida = $_POST['FechaSalida'];
-    $origen = $_POST['Origen'];
-    $destino = $_POST['Destino'];
-    $tipoDeViaje = ['TipoDeViaje'] ?? 'Ida';
-    $fechaVuelta = $_POST['FechaVuelta'];
-    $numConvoy = $_POST['Num_Convoy'];
-    $numCoche = $_POST['Num_Coche'];
-    $numAsiento = $_POST['NumAsiento'];
-    $precioPersona = $_POST['PrecioPersona'];
-    $cantPasajeros = $_POST['CantPasajeros'];
-    $precioTotal = $_POST['PrecioTotal'];
-    $fechaDeReserva = $_POST['FechaReserva'];
-    $numOperacion = $_POST['Num_Operacion'];
-  
-    $reserva = $controlModel->reservar(
-      $nombre, $apellido, $dni, $mail, $telefono, $direccion, $numeroDir, $localidad, $fechaSalida, $origen, $destino, $tipoDeViaje, $fechaVuelta, $numConvoy, $numCoche, $numAsiento, $precioPersona, $cantPasajeros, $precioTotal, $fechaDeReserva, $numOperacion);
+    $reserva = array(
+      /*
+      'nombre' => $_POST['Nombre_'],
+      'apellido' => $_POST['Apellido_'],
+      'dni' => $_POST['Dni_'],
+      'mail' => trim($_POST['Email_']),
+      'telefono' => $_POST['Telefono_'],
+      'direccion' => $_POST['Direccion_'],
+      'numeroDir' => $_POST['NumeroDir_'],
+      'localidad' => $_POST['Localidad_'],
+      'fechaSalida' => $_POST['FechaSalida(date("d-m-Y"))'],
+      'origen' => $_POST['Origen_'],
+      'destino' => $_POST['Destino_'],
+      'tipoDeViaje' => ['TipoDeViaje_'],
+      'fechaVuelta' => $_POST[date("d-m-Y")],
+      'numConvoy' => $_POST[mt_rand(100,220)],
+      'numCoche' => $_POST[mt_rand(20,50)],
+      'numAsiento' => $_POST[mt_rand(1,80)],
+      'precioPersona' => $_POST['PrecioPersona_'],
+      'cantPasajeros' => $_POST['CantPasajeros_'],
+      'precioTotal' => $_POST['PrecioTotal_'],
+      'fechaDeReserva' => SYSDATE(),
+      'numOperacion' => $_POST['NumOperacion_']
+      */
+      
+      'nombre' => 'test',
+      'apellido' => 'agosto',
+      'dni' => '366',
+      'mail' => 'hola@gmail.com',
+      'telefono' => '1115',
+      'direccion' => 'catán',
+      'numeroDir' => '1759',
+      'localidad' => 'matancity',
+      'fechaSalida' => '7/7/23',
+      'origen' => '1',
+      'destino' => '20',
+      'tipoDeViaje' => '2',
+      'fechaVuelta' => '7/8/25',
+      'numConvoy' => '100',
+      'numCoche' => '10',
+      'numAsiento' => '20',
+      'precioPersona' => '1000',
+      'cantPasajeros' => '1',
+      'precioTotal' => '1000',
+      'fechaDeReserva' => '1/6/23',
+      'numOperacion' => '25'
+      
+    );
+   
+    $usersModel->reservar($reserva);
 
     if (!empty($reserva)){
 
@@ -50,6 +76,9 @@
           <h3 class="error">Ocurrió un error. Revisa los datos ingresados.</h3>
         <?php
       }
+
+    }
+    
 
     }else{
       ?>

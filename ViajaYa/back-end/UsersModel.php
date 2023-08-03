@@ -95,7 +95,7 @@ class UsersModel extends ConexionSQL{
       //uso de variables variables
       //https://www.php.net/manual/es/language.variables.variable.php
       public function reservar( $datosReserva = array() ){
-       foreach($datosReserva as $campo => $valor){
+       foreach($datosReserva as $key => $valor){
          $$key = $valor;
          $$$key = $valor;
          $$$$key = $valor;
