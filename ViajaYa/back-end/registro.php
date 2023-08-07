@@ -1,40 +1,23 @@
 <?php
-require_once('ConexionSQL.php');
-require_once('UsersModel.php');
-
+require_once('controlUsuarios.php');
 
 if(isset($_POST['Registrar'])){
-  
-  if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    // Create a new instance of the UsersModel class
-    $usersModel = new UsersModel();
 
-    // Prepare the user data array from the POST data
+    $control_user = new ControlUsuarios();
+
     $user_data = array(
-      //nombre_bd     nombre form
-        'name' => $_POST['names'],
-        'mail' => $_POST['mails'],
-        'user' => $_POST['users'],
-        'pass' => $_POST['passw'],
-        'role' => 'Usuario',
+        'name' => $_POST['name'],
+        'mail' => $_POST['mail'],
+        'user' => $_POST['user'],
+        'pass' => $_POST['pass'],
+        'role' => $_POST['role']
     );
 
-    // Call the create method to insert the user
-    $usersModel->create($user_data);
-    ?>
-    <script>
-    window.alert("Registro completo!");
-    window.location.href = "usuario.php";
-    </script>
-    <?php
+    $control_user->create($user_data);
+    echo 'registro completo';
+
     exit();
-}else{
-  ?>
-  <script>
-  window.alert("Registro falló!");
-  window.location.href = "index.php";
-  </script>
-  <?php
 }
-}
+
+
   ?>
