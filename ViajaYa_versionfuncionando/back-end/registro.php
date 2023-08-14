@@ -23,7 +23,9 @@ if(isset($_POST['Registrar'])){
     ?>
     <script>
     window.alert("Registro completo!");
-    window.location.href = "usuario.php";
+    session_start();
+    $_SESSION['user'] = $userData[0]['user']; 
+    window.location.href = "../usuario.php";
     </script>
     <?php
     exit();
@@ -31,7 +33,7 @@ if(isset($_POST['Registrar'])){
   ?>
   <script>
   window.alert("Registro falló!");
-  window.location.href = "index.php";
+  window.location.href = "../index.php";
   </script>
   <?php
 }

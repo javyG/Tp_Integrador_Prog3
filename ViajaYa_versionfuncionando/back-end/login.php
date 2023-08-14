@@ -17,26 +17,33 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $userData = $usersModel->validate_user($usuario, $password);
 
     if (!empty($userData)) {
+        if($userData[0]['role']== "Administrador"){
+            session_start();
+            $_SESSION['user'] = $userData[0]['user']; 
+            ?>
+            <script>
+            window.alert("Bienvenido al dashboard!");
+            window.location.href = "../destinos.php";
+            </script>
+            <?php
+        }else{
 
         session_start();
-        $_SESSION['user']= true;
-        $_SESSION= $usuario;
-        
-       
+        $_SESSION['user'] = $userData[0]['user']; 
         ?>
         <script>
-        window.alert("Bienvenido");
+        window.alert("Bienvenido a viaja ya!");
         window.location.href = "../usuario.php";
         </script>
         <?php
      
    
         exit();
-    } else {
+    }} else {
         ?>
         <script>
         window.alert("Usuario o contraseña incorrectos");
-        window.location.href = "../index.php";
+        window.location.href = "index.php";
         </script>
         <?php
     }
