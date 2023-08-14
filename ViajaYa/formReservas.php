@@ -13,68 +13,75 @@
           <img class="logo"  src="Imagen/logo.png" alt="">
           </a> 
           <nav>
-              <a class="registro" href="formReservas.php">Reservar</a>
               <a class="registro" onclick="registrarse();">Registrarse</a>
               <a class="login-usuario" onclick="iniciarsesion();">Iniciar Sesión</a>        
           </nav>
   </header>
 
   <form class="form" action="back-end/reservas.php" method="POST">
-    <h1>Reservas</h1>
-    <p>Hacé tu reserva</p>
+    <h1>Reserva ahora tus boletos</h1>
+    <!-- <p>Hacé tu reserva</p> -->
 
-    <div class="datos_pasajero">
-        <input type="text" name="Nombre" placeholder="Nombre">
-        <!-- <img class="input-icon" src="/carpeta/nombrearchivo.svg" alt="imagenInput"> -->
-      
-        <input type="text" name="Apellido" placeholder="Apelido">
-      
-        <input type="number" name="DNI" placeholder="DNI" max>
-        
-        <input type="email" name="Email" placeholder="Email">
-      
-        <input type="number" name="Telefono" placeholder="Telèfono" max>
-      
-        <input type="text" name="Direccion" placeholder="Direcciòn">
-      
-        <input type="number" name="NumeroDir" placeholder="Número" max>
-      
-        <input type="text" name="Localidad" placeholder="Localidad"> 
-    </div>
-    <!-- . -->
-    <div class="datos_boleto">
-        <input type="date" name="FechaSalida" placeholder="Fecha de Salida">
-      
-        <input type="text" name="Origen" placeholder="Origen">
-      
-        <input type="text" name="Destino" placeholder="Destino">
-      
-        <input type="radio" name="TipoDeViaje" value="Ida" >
-          Ida
+    <div class="container-form">
+      <div class="datos_pasajero">
+
+        <input type="text" name="Nombre_" placeholder="Nombre">
           
-        <input type="radio" name="TipoDeViaje" value="Ida y Vuelta" >
-          Ida y Vuelta
-
-        <input type="date" name="FechaVuelta" placeholder="Fecha de Vuelta">
+          <input type="text" name="Apellido_" placeholder="Apelido">
         
-        <input type="number" name="Num_Convoy" placeholder="Num Comvoy" max>
+          <input type="number" name="Dni_" placeholder="DNI" max>
+          
+          <input type="email" name="Email_" placeholder="tu@email">
+        
+          <input type="number" name="Telefono_" placeholder="Telèfono" max>
+        
+          <input type="text" name="Direccion_" placeholder="Direcciòn">
+        
+          <input type="number" name="NumeroDir_" placeholder="Número" max>
+        
+          <input type="text" name="Localidad_" placeholder="Localidad"> 
 
-        <input type="number" name="Num_Coche" placeholder="Num Coche" max>
+      </div>
+      <!-- . -->
+      <div class="datos_boleto">
+        <input type="date" name="FechaSalida_" placeholder="Partida: 2023-12-30 ">
+          
+          <input type="text" name="Origen_" placeholder="Origen">
+        
+          <input type="text" name="Destino_" placeholder="Destino">
+        
+          <div>
+            <input type="radio" name="TipoDeViaje_" value="1" placeholder="Destino">
+              Ida
+              
+            <input type="radio" name="TipoDeViaje_" value="2" placeholder="Destino">
+              Ida y Vuelta
+          </div>
+          
+
+          <input type="date" name="FechaVuelta_" placeholder="Regreso: 2023-12-30">
+          
+          <!-- <input type="number" name="NumConvoy_" placeholder="Num Comvoy" max>
+
+          <input type="number" name="NumCoche_" placeholder="Num Coche" max> -->
+        
+          <input type="number" name="NumAsiento_" placeholder="Num Asiento" max>
+        
+          <input type="number" name="PrecioPersona_" placeholder="Precio" >
+        
+          <input type="number" name="CantPasajeros_" placeholder="Cantidad de pasajeros" max>
+        
+          <input type="number" name="PrecioTotal_" placeholder="Precio Total" max>
+        
+          <!-- <input type="number" name="NumOperacion_" placeholder="Num operaciòn"> -->
+      </div>
+
       
-        <input type="number" name="NumAsiento" placeholder="Num Asiento" max>
-      
-        <input type="number" name="PrecioPersona" placeholder="Precio" >
-      
-        <input type="number" name="CantPasajeros" placeholder="Cantidad de pasajeros" max>
-      
-        <input type="number" name="PrecioTotal" placeholder="Precio Total" max>
-      
-        <input type="date" name="FechaReserva" placeholder="Fecha Reserva" max>
-      
-        <input type="number" name="Num_Operacion" placeholder="Num operaciòn">
     </div>
+    <input class="btn" type="submit" name="btnReservar" value="Enviar">
 
-    <input class="btn" type="submit" name="btnRegister" value="Enviar">
+    
+    
   </form>
 
   <?php

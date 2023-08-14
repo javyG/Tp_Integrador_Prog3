@@ -1,17 +1,17 @@
 .body{
-  box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
   /*style del header*/
     header{
       z-index: 1;
       width: 100%;
-      /* box-shadow: 0px 2px 6px 2px rgba(40, 51, 77, 1); */
+      /*box-shadow: 0px 2px 6px 2px rgba(40, 51, 77, 1); */
       height: 75px;
       justify-content: flex-end;
       align-items: center;
@@ -46,39 +46,27 @@
 
     .registro:hover{
         background-color: deepskyblue;
-        padding: 10px 10px;
-        margin: 20px
     }
   /**/
   
   .form{
     box-shadow: 0 0 18px rgba(0, 0, 0, 0.8);
-    padding: 20px 20px;
-    border-radius: 15px;
+    padding: 40px 30px;
+    border-radius: 45px;
     display: flex;
+    flex-direction: column;
     text-align: center;
-    /* justify-content: center; */
+    justify-content: center;
     flex-wrap: wrap;
-    width: 600px;
+    width: 900px;
     margin: auto;
-    justify-content: center;
-    flex-wrap: wrap;
-
-  }
-
-  .container-form{
-    display: flex;
-    justify-content: center;
-    column-gap: 40px;
-    flex-wrap: wrap;
   }
 
   .datos_pasajero{
     display: flex;
     flex-direction: column;
     text-align: center;
-    width: auto;
-    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .datos_boleto{
@@ -86,52 +74,37 @@
     flex-direction: column;
     text-align: center;
     justify-content: center;
-    width: auto;
   }
 
   form h1{
-    font-size: 40px;
+    font-size: 45px;
     color: #0d0d0d;
-    margin: 5px 5px;
-    display: block;
+    margin: 0;
   }
   
   form p{
-    margin: 5px;
-    padding: 0%;
     font-size: 16px;
     color: #5e5e5e;
-    display: block;
+    margin-bottom: 30px;
   }
   
   input {
     color: #0d0d0d;
-    padding: 10px 10px 10px 40px;
-    border-radius: 10px;
+    padding: 20px 10px 20px 40px;
+    border-radius: 20px;
     border: 0;
     box-shadow: 0 0 20px rgba(192, 203, 251, 0.7);
     outline: none;
     font-size: 16px;
+    text-align: center;
     align-items: center;
     flex-wrap: wrap;
-    margin-top: 10px;
-    
-  }
-
-  .input-icon{
-    height: 18px;
-    width: 20px;
-    right: 10px;
-    top: 0;
-    transform: translateX(55%);
-    transform: translateY(5%);
-    outline: none;
-    position: absolute;
+    margin-top: 8px;
   }
 
   .btn{
-    height: 0px;
-    display: absolute;
+    display: flex;
+    flex-direction: column;
     text-align: center;
     justify-content: center;
     background: linear-gradient(
@@ -142,11 +115,8 @@
     color: #FFFFFF;
     text-transform: uppercase;
     font-size: 14px;
+    margin-top: 10px;
     cursor: pointer;
-    padding: 5px;
-    width: 50%;
-    margin: 20px 20px 10px 20px;
-    height: 30px;
   }
   .btn:hover{
     background: rgb(153, 47, 252);
@@ -157,36 +127,7 @@
     color: #8d8db1;
   }
 
-  @media(max-width:991px){
-    body{
-      padding: 10px;
-    }
-    form{
-      padding: 20px;
-      width: 100%;
-    }
-    .input-wrapper{
-      position: relative;
-      width: 88%;
-      margin-bottom: 35px;
-    }
-    input{
-      padding: 20px 0px 20px 45px;
-    }
-    .input-icon{
-      height: 20px;
-      width: 20px;
-    }
-  }
-
-  /*   */
-
-
-
-
-
-
-
+  
   
   /*
   
@@ -216,5 +157,24 @@
   }
   
   para modo responsive
-  
-  */
+  @media(max-width:991px){
+    body{
+      padding: 10px;
+    }
+    form{
+      padding: 20px;
+      width: 100%;
+    }
+    .input-wrapper{
+      position: relative;
+      width: 88%;
+      margin-bottom: 35px;
+    }
+    input{
+      padding: 20px 0px 20px 45px;
+    }
+    .input-icon{
+      height: 20px;
+      width: 20px;
+    }
+  } */

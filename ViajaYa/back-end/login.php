@@ -1,45 +1,26 @@
 <?php
+require_once('control_de_sesiones.php');
+require_once('controlador_de_vistas.php');
 
-require_once('ConexionSQL.php');
-require_once('UsersModel.php');
-
-
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
+if(!isset($_POST['btn_guardar_cambios'])){
     
-      $usersModel = new UsersModel();
-
+    $control_user = new Control_Sesiones();
+    $ver = new controlador_de_vistas();
    
-      $usuario = $_POST['users'];
-      $password = $_POST['passw'];
-     
-   
-  
-    $userData = $usersModel->validate_user($usuario, $password);
+    $userData = $control_user->login($_POST['users'], $_POST['passw']);
 
     if (!empty($userData)) {
 
         session_start();
-        $_SESSION['user']= true;
-        $_SESSION= $usuario;
-        
-       
-        ?>
-        <script>
-        window.alert("Bienvenido");
-        window.location.href = "../usuario.php";
-        </script>
-        <?php
-     
-   
-        exit();
+    
+       // echo 'ingreso exitoso';
+        $ver->cargar_vista('formUsuarios');
+         
+       // exit();
     } else {
-        ?>
-        <script>
-        window.alert("Usuario o contraseña incorrectos");
-        window.location.href = "../index.php";
-        </script>
-        <?php
+        echo "Usuario o contraseña incorrectos";
+        //header("Location: ./"); 
     }
 }
-
 ?>
+      
