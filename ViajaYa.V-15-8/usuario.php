@@ -7,23 +7,10 @@ $_SESSION['user'] =  '<p>Sesion Iniciada</p><br><p>Hola </p>';
 if ($_SESSION) {
 
     $datos =   new UsersModel();
-    ?>
-    <script>
-    window.alert("Bienvenido");
-    </script>
-    <?php
-   // echo $_SESSION['user'];
-    
-    $resultado = $datos->read($_REQUEST['users']);
-    exit();
-} else {
-    $_SESSION['user'] = false;
-    echo 'No ha iniciado sesion';
-
-}
-?>    
-    <!DOCTYPE html>
-    <html lang="en">
+    $resultado = $datos->read();
+?>   
+<!DOCTYPE html>
+<html lang="en">
 
     <head>
         <meta charset="UTF-8">
@@ -65,20 +52,19 @@ if ($_SESSION) {
                         $resultado['role'];
 
                 }
-
-                echo " Hola".$resultado['user']." bienvenido <br>";
-                echo "<p>Tu nombre es <b>".$resultado['name']."</b></p>";
-                echo "<p>Tu email es <b>". $resultado['mail']."</b></p>";
-                echo "<p>Tu perfil de usuario tiene nivel de <b>".$resultado['role']."</b></p>";
+                echo "Hola ".$resultado['user']." Bienvenid@  <br>";
+                echo "Tu nombre es ".$resultado['name']."<br>";
+                echo "Tu email es ". $resultado['mail']."<br>";
+                echo "Tu perfil de usuario tiene nivel de ".$resultado['role']."<br>";
           
             } else {
                 echo "Usuario no encontrado.";
             }
-   
+            ?>
            
-           ?>
+            
             </div>
-        </div>
+    </div>
     </section>
 
     <!-- Seccion donde se encuentra el form principal -->
@@ -199,8 +185,14 @@ if ($_SESSION) {
     </script>
     <script src="https://kit.fontawesome.com/7b140c6d77.js" crossorigin="anonymous"></script>
 
-    </body>
-    </html>;
+</body>
+</html>
     
-  
+<?php
+    exit();
+} else {  $_SESSION['user'] = false;
+    echo 'No ha iniciado sesion';
 
+}
+
+?>

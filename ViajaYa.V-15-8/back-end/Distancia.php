@@ -1,7 +1,7 @@
 <?php
 
 require_once('DistanciaModel.php');
-
+require_once('ConexionSQL.php');
 
 //para procedimiento insertarDistancia
 if(isset($_POST['Guardar'])){
