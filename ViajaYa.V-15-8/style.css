@@ -44,7 +44,25 @@ nav a{
     background-color: deepskyblue;
 }
 
+.button{
+    border-radius: 10px;
+    width: auto;
+    height: 40px;
+    padding: 10px;
+    background-color: rgb(90, 141, 250);
+    color: aliceblue;
+    border: none;
+}
 
+.cerrar{
+    border-radius: 10px;
+    width: auto;
+    height: 40px;
+    padding: 10px;
+    background-color: rgba(238, 102, 102, 0.904);
+    color: aliceblue;
+    border: none;
+}
 
 .div1{
     width: 1000px;
