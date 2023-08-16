@@ -1,4 +1,3 @@
-
 <?php
 require_once('UsersModel.php');
 
@@ -9,7 +8,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $usersModel = new UsersModel();
  
     $user_data = array(
-        'user_id' => $_POST['userID'],
+        'userID' => $_POST['user_ID'],
         'name' => $_POST['newname'],
         'mail' => $_POST['newmail'],
         'user' => $_POST['newuser'],
@@ -25,4 +24,5 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       <?php
   }
 
+  ?>
   ?>
