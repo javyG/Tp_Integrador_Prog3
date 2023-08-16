@@ -2,9 +2,10 @@
 require_once('back-end/UsersModel.php');
 require_once('back-end/login.php');
 
-session_start();
+//session_start();
 
-if (isset($_SESSION['user']) && $_SESSION['user'] == true) {
+$_SESSION['user'] =  '<p>Sesion Iniciada</p><br><p>Hola </p>';
+if ($_SESSION) {
 
     $datos = new UsersModel();
     $registro = $datos->read();
@@ -38,25 +39,12 @@ if (isset($_SESSION['user']) && $_SESSION['user'] == true) {
         <div class="div1">
         </div>
         <div class="div2">
-        <?php
-        if (!empty($registro)) {
+        
+        <h1> Bienvenido/a</h1><br>
+        <h3>Ingreso como administrador</h3><br>
+        <p>Puede actualizar sus datos o los datos de los usuarios. (Para esto es necesario que recuerde su ID o conozca el ID del usuario).</P>
+        <p>Tambien puede ingresar nuevos destinos.</p>
 
-            foreach ($registro as $registro) {
-                $registro['user_id'];
-                $registro['user'];
-                $registro['name'];
-                $registro['mail'];
-                $registro['role'];
-            }
-
-            echo "Nombre: " . $registro['name'] . "<br>";
-            echo "Email: " . $registro['mail'] . '<br>';
-            echo "Usuario: " . $registro['user'] . '<br>';
-
-        } else {
-            echo "Usuario no encontrado.";
-        }
-         ?>
          </div>
     </div>
  </section>
@@ -97,5 +85,7 @@ if (isset($_SESSION['user']) && $_SESSION['user'] == true) {
 } else {
     echo 'No ha iniciado sesion';
 }
+
+?>
 
 ?>
