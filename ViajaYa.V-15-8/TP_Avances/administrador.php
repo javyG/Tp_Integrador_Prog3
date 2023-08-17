@@ -4,7 +4,7 @@ require_once('back-end/login.php');
 
 //session_start();
 
-$_SESSION['user'] =  '<p>Sesion Iniciada</p><br><p>Hola </p>';
+$_SESSION['user'] =  '<p>Sesion Iniciada</p>';
 if ($_SESSION) {
 
     $datos = new UsersModel();
@@ -29,6 +29,7 @@ if ($_SESSION) {
         </a> 
         <nav>
             <a class='button' href="formCambiar.php">Cambiar datos</a>
+            <a class='button' href="eliminarUsuario.php">Eliminar usuario</a>
             <a class="button" href="destinos.php">Creacion de destinos</a>
             <a class="cerrar" href="back-end/logout.php">Cerrar Sesión</a>
         </nav>
@@ -43,31 +44,14 @@ if ($_SESSION) {
         <h1> Bienvenido/a</h1><br>
         <h3>Ingreso como administrador</h3><br>
         <p>Puede actualizar sus datos o los datos de los usuarios. (Para esto es necesario que recuerde su ID o conozca el ID del usuario).</P>
+        <p>Puede eliminar usuarios. (Siempre ingresando el ID)</p>
         <p>Tambien puede ingresar nuevos destinos.</p>
 
          </div>
     </div>
  </section>
  
- <section>
-   <div class="seccion3">
-    <div>
-        <i class="fa-regular fa-circle-question"></i>
-        <span>Preguntas Frecuentes</span><br>
-        <br>
-    </div>
-    <div>
-        <i class="fa-regular fa-credit-card"></i>
-        <span>Medios de pago</span><br>
-        <br>
-    </div>
-    <div>
-        <i class="fa-solid fa-percent"></i>
-        <span>Descuentos vigentes</span><br>
-        <br>
-    </div>
-  </div>
- </section>
+
 
  <footer>
     <div class="piepag">
@@ -83,9 +67,12 @@ if ($_SESSION) {
 <?php
 
 } else {
-    echo 'No ha iniciado sesion';
-}
+    
+    echo "<script languaje='JavaScript'>
+    alert('No ha iniciado sesion');
+    </script>
+    ";
 
-?>
+}
 
 ?>
