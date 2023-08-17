@@ -1,3 +1,5 @@
+<?php include 'back-end/Distancia.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,27 +42,43 @@
                      <label for="idayvuelta">Ida y Vuelta</label><br>
                     </div>
                   
-                    Origen:  <input list="origen">
-                    <datalist id="origen">
-                      <option value="Córdoba">
-                      <option value="Tucumán">
-                      <option value="Pehuajó">
-                      <option value="Tandil">
-                      <option value="Buenos Aires">
-                    </datalist><br>
-                    <!-- <input type="text" name="origen"><br> -->
+                  
+ 
+                    <label for="origen">Origen:</label>
+                    <select name="origen" id="origen" onchange="cargarDestinosPorRamal()">
+                    <?php
+                    if (empty($origenes)) {
+                    echo '<option value="" disabled>No hay datos disponibles</option>';
+                    } else {
+                    foreach ($origenes as $origen) {
+                    echo '<option value="' . $origen['desde'] . '" data-ramal="' . $origen['ramal'] . '">' . $origen['desde'] . '</option>';
+                    }
+                    }
+                    ?>
+                    </select>
                     <br>
+                    <label for="destino">Destino:</label>
+                    <select name="destino" id="destino-ramal">
+                    </select>
+                    <br>
+                   
+                <script>
+                    function cargarDestinosPorRamal() {
+                    var origenSelect = document.getElementById("origen");
+                    var destinoRamalSelect = document.getElementById("destino-ramal");
+                    var selectedRamal = origenSelect.options[origenSelect.selectedIndex].getAttribute("data-ramal");
+                    destinoRamalSelect.innerHTML = '<option value="" disabled selected>Selecciona un destino</option>';
 
-                    Destino:
-                    <!-- Destino: <input type="text" name="destino"><br> -->
-                    <input list="destinos">
-                    <datalist id="destinos">
-                      <option value="Córdoba">
-                      <option value="Tucumán">
-                      <option value="Pehuajó">
-                      <option value="Tandil">
-                      <option value="Mar del Plata">
-                    </datalist><br>
+                    <?php
+                    foreach ($destinos as $destino) {
+                    echo 'if ("' . $destino['ramal'] . '" === selectedRamal && "' . $destino['hasta'] . '" !== origenSelect.value) {';
+                    echo 'destinoRamalSelect.innerHTML += \'<option value="' . $destino['hasta'] . '">' . $destino['hasta'] . '</option>\';';
+                    echo '}';
+                    }
+                    ?>
+                    }
+                 </script>
+
                     <br>
                     <label for="fechaida">Fecha de Ida:</label>
                     <input type="date" id="fechaida" name="fechaida"><br>

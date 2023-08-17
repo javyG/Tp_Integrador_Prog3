@@ -1,13 +1,14 @@
 <?php
-
-require_once('DistanciaModel.php');
 require_once('ConexionSQL.php');
+require_once('DistanciaModel.php');
+
 
 //para procedimiento insertarDistancia
 if(isset($_POST['Guardar'])){
-  //if ($_SERVER["REQUEST_METHOD"] === "POST") {
-   
-    $distModel = new DistanciaModel();
+  
+  if ($_SERVER["REQUEST_METHOD"] === "POST") {
+  
+    $usersModel = new DistanciaModel();
 
    
     $dest_data = array(
@@ -17,20 +18,16 @@ if(isset($_POST['Guardar'])){
         'ramal' => $_POST['ramal']
     );
  
-    $distModel->create($dist_data);
-    if (!empty($dist_data)) {
+    $usersModel->create($dest_data);
    
     echo 'registro completo';
   
     header("Location: ../destinos.php");
      exit();
-    }else{
-      echo 'Fallo al registrar';
-    }
 
 }
 
-
+}
 
 
 
@@ -39,11 +36,11 @@ if(isset($_POST['Eliminar'])){
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
     
       
-        $distModel = new UsersModel();
+        $usersModel = new DistanciaModel();
         
         $distancia_id = $_POST['id_distancia'];
 
-        $distModel->delete($distancia_id);
+        $usersModel->delete($distancia_id);
 
 
       echo 'distancia eliminada';
@@ -55,4 +52,18 @@ if(isset($_POST['Eliminar'])){
   
   }
   
+
+
+
+$distanciasModel = new DistanciaModel();
+$distancias = $distanciasModel->read(); 
+
+
+$origenesModel = new DistanciaModel();
+$origenes = $origenesModel->readOrigenes(); 
+
+$destinosModel = new DistanciaModel();
+$destinos = $destinosModel->readDestinos(); 
+
+
 ?>

@@ -1,4 +1,4 @@
-<?php include 'Distancia.php'; ?>
+<?php include 'back-end/Distancia.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +11,7 @@
 
     <!-- form  procedimiento create destino -->
     <h3>Creacion De Destinos</h3>
-    <form action="back-end/Distancia.php" method="POST">
+    <form action="back-end/Distancia.php" method="POST" onsubmit="return validarSeleccion();">
         <br>
         <label for="origen">Origen:</label>
      
@@ -44,14 +44,32 @@
         <br>
 
         <label for="km">Distancia en km:</label>
-        <input type="number" name="km" id="km" >
+        <input type="number" name="km" id="km" required>
         <br>
         <label for="ramal">Ramal:</label>
-        <input type="text" name="ramal" id="ramal" >
+        <input type="text" name="ramal" id="ramal" required>
         <br>
         <input type="submit" name="Guardar" value="Guardar">
     </form>
     
+    <script>
+    
+
+        function validarSeleccion() {
+                var origen = document.getElementById("origen").value;
+                var destino = document.getElementById("destino").value;
+
+                if (origen === destino) {
+                    alert("El origen y destino no pueden ser iguales");
+                    return false; 
+                }
+            }
+
+    
+    </script>
+
+
+  
 
     <h3>DESTINOS</h3>
 
