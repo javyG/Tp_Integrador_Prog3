@@ -50,11 +50,13 @@ if ($_SESSION) {
                             $registro['mail'];
                             $registro['role'];
                     }
+
+                    echo "<p>Usuario: ".$registro['user']."</p><br>";
+                    echo "<p>Nombre: ".$registro['name']."</p><br>";
+                    echo "<p>Mail: ". $registro['mail']."</p><br>";
                 }
             
             ?>
-
-            <input type="text" placeholder="mostrar datos de usuarios" value="<?php echo "usuario: ".$registro['user'];?>" readonly>
             <br> 
             <h3>Ingreso como administrador</h3><br>
             <br>
