@@ -1,3 +1,0 @@
-# Tp_Integrador_Prog3
-#30/07/23 borré los archivos conexion.php, controlador.php que no estaban siendo utilizados, también cambié el index2.php por usuario.php para mejor comprension, está funcionando registro y login correctamente.
-14/08/23 cambios realizados para que funcione reservas,registros y validacion de usuarios. Tambien se corregieron errores en las validaciones de datos. creacion de archivo Calcular.php, dónde se realiza el cálculo de disponibilidades y cálculo de precios.
