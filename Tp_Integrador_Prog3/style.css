@@ -1,0 +1,461 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+}
+
+
+header{
+    z-index: 1;
+    position: sticky;
+    box-shadow: 0px 2px 6px 2px rgba(40, 51, 77, 1);
+    height: 75px;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+}
+.logo{
+    width: 200px;
+    height: 100px;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+nav a{
+    display: inline-block; 
+    text-decoration: none;
+    margin-right: 15px;
+    padding: 0px 2px 0px 7px; 
+    cursor: pointer;   
+}
+.registro{
+    border-radius: 10px;
+    width: auto;
+    height: 40px;
+    padding: 10px;
+    background-color: rgba(8, 78, 230, 0.904);
+    color: aliceblue;
+    border: none;
+}
+
+.registro:hover{
+    background-color: deepskyblue;
+}
+
+
+
+.div1{
+    width: 1000px;
+    height: 500px;
+    background-image: url(Imagen/tren-ros-retiro.jpg);
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.div2{
+    width: 600px;
+    height: 500px;
+    background-color: deepskyblue;
+    padding: 50px;
+    gap: 10px 20px;
+   
+}
+
+.formulario{
+    background-color: aliceblue;
+    display: flex;
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+}
+
+.divprincipal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+.titulo{
+    color:beige;
+    text-shadow:2px 3px 5px rgba(0, 0, 0, 0.7);
+    font-size: 60px;
+    text-align: end;
+    margin-right: 40px;
+    margin-top: 350px;
+    border-color: black;
+    border: 10px;
+    font-family: 'Josefin Sans', sans-serif;
+    text-transform: uppercase;
+}
+
+.btn-perfil{
+    margin-bottom: 10px;
+    width: auto;
+    height: 30px;
+    padding: 10px;
+    color: rgb(36, 71, 168);
+    border: none;
+}
+
+.logout{
+   padding: 10px;
+}
+#logoutico{
+    font-size: 30px;
+    color: rgb(44, 45, 109);
+    margin-right: 10px;
+    text-align: center;
+    align-items: center;
+}
+
+
+.radios{
+    display: flex;
+    margin: 10px;
+    gap: 10px;
+}
+
+
+.perfil{
+    background-color: aqua;
+    opacity: 0%;
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    width: 0px;
+    padding: 20px 30px;
+    box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    color:rgb(255, 255, 255);
+    text-align: center;
+    display: flex;
+   
+ 
+}
+
+.perfil.active{
+    display: flow-root;
+    padding-bottom: 40px;
+    background-color: rgb(4, 109, 179);
+    width: 300px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1.25);
+    opacity: 100%;
+    transition: top 0ms ease-in-out 200ms,
+                opacity 500ms ease-in-out 0ms,
+                transform 20ms ease-in-out 0ms;
+    text-align: center;
+    align-items: center;
+}
+
+.perfil .close-btn2{
+    position: absolute;
+    top: 10px;
+    right:10px ;
+    width: 15px;
+    height: 15px;
+    background-color: midnightblue;
+    color: white;
+    text-align: center;
+    line-height: 15px;
+    border-radius: 15px;
+    cursor: pointer;
+
+}
+
+.popup{
+   
+    background-color:rgb(255, 255, 255);
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    width: 0px;
+    padding: 20px 30px;
+    box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    color:darkslategray;
+    text-align: left;
+    opacity: 0%;
+  
+   
+}
+
+
+.popup1{
+    background-color:white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0px;
+    padding: 20px 30px;
+    box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    color:darkslategray;
+    text-align: left;
+    opacity: 0%;
+    
+}
+
+.popup.active{
+    width: 300px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1.25);
+    opacity: 1;
+    transition: top 0ms ease-in-out 200ms,
+                opacity 500ms ease-in-out 0ms,
+                transform 20ms ease-in-out 0ms;
+                     
+}
+
+
+.popup1.active1{
+    width: 300px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1.25);
+    opacity: 1;
+    transition: top 0ms ease-in-out 200ms,
+                opacity 500ms ease-in-out 0ms,
+                transform 20ms ease-in-out 0ms;
+
+}
+.formlogin input{
+    border-radius: 3px;
+    font-size: medium;
+    width: 100%;
+}
+
+.popup .close-btn{
+    position: absolute;
+    top: 10px;
+    right:10px ;
+    width: 15px;
+    height: 15px;
+    background-color: midnightblue;
+    color: white;
+    text-align: center;
+    line-height: 15px;
+    border-radius: 15px;
+    cursor: pointer;
+
+}
+.popup1 .close-btn1{
+    
+    position: absolute;
+    top: 10px;
+    right:10px ;
+    width: 15px;
+    height: 15px;
+    background-color: midnightblue;
+    color: white;
+    text-align: center;
+    line-height: 15px;
+    border-radius: 15px;
+    cursor: pointer;
+
+}
+.login{
+    align-items: center;
+    justify-content: center;
+    top:50%;
+    left: 50%;
+}
+
+.formlogin{
+    margin-top: 5px;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    border-radius:5px ;
+}
+
+.center{
+    align-items: center;
+    padding: 10px 20px;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 15px;
+    color: aliceblue;
+    background-color: rgb(6, 67, 233);
+}
+h3 .success{
+    position: absolute;
+    color: greenyellow;
+    top: 50px;
+    font-size: 25px;
+}
+.error{
+    position: absolute;
+    color:firebrick;
+    top: 50px;
+    font-size: 25px;
+}
+
+.imagenes{
+    position: static;
+    justify-content: center;
+    overflow: hidden;
+    width: auto;
+    
+}
+
+.imagenes img{
+    padding: 20px;
+    width: 100%;
+    object-fit: cover;
+    width: 420px;
+    height: 420px;    
+    
+}
+
+.listaimg{
+    display: flex;
+    overflow-y: auto;   
+    justify-content: center;
+}
+
+.imagenes img:hover{
+    filter: brightness(120%);
+    width: 460px;
+    height: 460px;
+    
+}
+
+.imagentur{
+    display: none;
+}
+
+
+.seccion3{
+    background-color: cornflowerblue;
+    display: flex;
+    align-items:center;
+    justify-content: space-around;
+    width: auto;
+    height: 100px;
+    color: aliceblue;
+    font-size: 20px;
+    text-align: center;
+    
+}
+#user{
+    font-size: 30px;
+    color: rgb(44, 45, 109);
+    margin-right: 10px;
+    text-align: center;
+    align-items: center;
+}
+
+.seccion3 i{
+    font-size: 40px;
+    margin-right: 20px;
+
+}
+
+footer{
+    width: auto;
+    height: 100px;
+    background-color: deepskyblue;
+    color: aliceblue;
+    font-size: 20px;
+    padding: 30px;
+    text-align: center;
+    align-items: center;
+
+}
+
+
+
+
+
+
+
+
+
+
+@media (max-width:700px) {
+    header{
+       align-items: column; 
+    }
+    nav{
+        font-size: small;
+        text-align: center; 
+    }
+    .logo{
+        width: 150px;
+        height: 80px;
+    }
+    .div1{
+      object-fit: cover;
+      width: auto;
+    }
+    .div2{
+        width: auto;
+    }
+    .titulo{
+        font-size: 40px;
+        text-align: center;
+        padding: 55px;
+        margin-top: 10px;
+        margin-left: 35px;
+    }
+    .imagenes{
+        flex-direction: column;
+        
+    }
+    .imagenes img{
+        flex-direction: column;
+        width: 300px;
+        height: 300px;
+        margin-right: 0px;
+        
+    }
+ 
+    .divprincipal{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    .listaimg{
+        width: auto;
+        flex-direction: column;
+        display: flex;
+        align-items: center;
+    }
+
+    
+.imagenes img:hover{
+    filter: brightness(120%);
+    width: 350px;
+    height:350px;
+}
+
+.seccion3{
+    font-size: smaller;
+    flex-direction: column;
+    padding: 15px;
+    height: 120px;
+    text-align: center;
+}
+
+.seccion3 i{
+    font-size: small;
+}
+footer{
+    font-size: smaller;
+}
+    
+}
+
+
+
+
