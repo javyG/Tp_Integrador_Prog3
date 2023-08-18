@@ -1,3 +1,5 @@
+<?php include('back-end/Distancia.php');?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,9 +50,47 @@
       <div class="datos_boleto">
         <input type="date" name="FechaSalida_" placeholder="Partida: 2023-12-30 ">
           
-          <input type="text" name="Origen_" placeholder="Origen">
+          <label for="Origen_">Origen:</label>
+          <select name="Origen_" id="origen" onchange="cargarDestinosPorRamal()">
+            <?php 
+            
+            if (empty($origenes)) {
+
+                echo '<option value="" disabled>No hay datos disponibles</option>';
+
+                } else {
+
+                  foreach ($origenes as $origen) {
+
+                    echo '<option value="'. $origen['desde'] . '" data-ramal="' . $origen['ramal'] . '">' . $origen['desde'] . '</option>';
+                  }
+                }
+            ?>
+          </select>
         
-          <input type="text" name="Destino_" placeholder="Destino">
+          <label for="Destino_">Destino:</label>
+          <select name="Destino_" id="destino-ramal"></select>
+        <script>
+
+          function cargarDestinosPorRamal() {
+            var origenSelect = document.getElementById("origen");//
+            var destinoRamalSelect = document.getElementById("destino-ramal");
+            var selectedRamal = origenSelect.options[origenSelect.selectedIndex].getAttribute("data-ramal");
+              destinoRamalSelect.innerHTML = '<option value="" disabled selected>Selecciona un destino</option>';
+              <?php
+                foreach ($destinos as $destino) {
+                  echo 'if ("' . $destino['ramal'] . '" === selectedRamal && "' . $destino['hasta'] . '" !== origenSelect.value) {';
+
+                  echo 'destinoRamalSelect.innerHTML += \'<option value="' . $destino['hasta'] . '">' . $destino['hasta'] . '</option>\';';
+
+                  echo '}';
+                }
+              ?>
+            
+            }
+            
+            
+          </script>
         
           <div>
             <input type="radio" name="TipoDeViaje_" value="1" placeholder="Destino">
