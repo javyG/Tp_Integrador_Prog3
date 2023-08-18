@@ -43,20 +43,6 @@ if ($_SESSION) {
         <div class="div2">
         
             <h1> Bienvenido/a</h1><br>
-            <?php
-                if (!empty($registro)) {
-                    foreach($registro as $registro){     
-                            $registro['user'];
-                            $registro['name'];
-                            $registro['mail'];
-                            $registro['role'];
-                    }
-                }
-                
-            
-            ?>
-      
-            <input type="text" placeholder="mostrar datos de usuarios" value="<?php echo "usuario: ".$registro['user'];?>" readonly>
             <br> 
             <h3>Ingreso como administrador</h3><br>
             <br>
